@@ -41,6 +41,8 @@ public class BasicCommand {
                 this.basicCmd = "scale=" + String.valueOf(resX) + ":" + String.valueOf(resY) + ", setsar=1:1, ";
             }
 
+
+
             //process video and audio trim operations
             if (videoObject.getStart() > 0 || videoObject.getEnd() > 0 || videoObject.getDuration() > 0) {
                 this.basicCmd += "trim=";
@@ -57,6 +59,9 @@ public class BasicCommand {
                     this.audioTrimCmd += String.valueOf(videoObject.getStart()) + ":" + String.valueOf(videoObject.getEnd());
                 }
 
+                if(videoObject.getVolume() != 0.0){
+                    this.audioTrimCmd += ", volume=" + String.valueOf(videoObject.getVolume());
+                }
 
                 this.audioTrimCmd += ", asetpts=PTS-STARTPTS";
 

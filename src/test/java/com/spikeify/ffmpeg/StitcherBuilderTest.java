@@ -75,12 +75,12 @@ public class StitcherBuilderTest {
 		//settings for video 1
 		TextBox textBox1 = new TextBox.TextBoxBuilder().setColor("black").setHeight(100).setWidth(100).setX(50).setY(50).setOpacity(0.5).createTextBox();
 		Caption caption1 = new Caption.CaptionBuilder(font, "~±!@#$%^&*()_-=+:;'/.?,<>\\…≥«≠–ºª•¶§¢£™¡§").setColor("white").setDisableNormalExp(true).setSize(40).setX(50).setY(30).setMovingByY(true).setRepeatY(true).setMovingSpeed(7).setStartPositionOffset(100).setTextBox(textBox1).createCaption();
-		VideoObject videoObject1 = new VideoObject.VideoObjectBuilder(input1).setFadeIn(new FadeIn.FadeInBuilder(0, 1).createFadeIn()).setFadeOut(new FadeOut.FadeOutBuilder(1, 1).createFadeOut()).setCaption(caption1).setResolutionX(1280).setResolutionY(720).createVideoObject();
+		VideoObject videoObject1 = new VideoObject.VideoObjectBuilder(input1).setVolume(0.5).setFadeIn(new FadeIn.FadeInBuilder(0, 1).createFadeIn()).setFadeOut(new FadeOut.FadeOutBuilder(1, 1).createFadeOut()).setCaption(caption1).setResolutionX(1280).setResolutionY(720).createVideoObject();
 		videoObjectList.add(videoObject1);
 
 		//settings for video 2
 		Caption caption2 = new Caption.CaptionBuilder(font, "Second One").setColor("white").setSize(40).setX(50).setY(30).setMovingByY(true).setMovingSpeed(7).setStartPositionOffset(100).createCaption();
-		VideoObject videoObject2 = new VideoObject.VideoObjectBuilder(input2).setFadeIn(new FadeIn.FadeInBuilder(0, 1).createFadeIn()).setFadeOut(new FadeOut.FadeOutBuilder(1, 1).createFadeOut()).setCaption(caption2).setResolutionX(1280).setResolutionY(720).createVideoObject();
+		VideoObject videoObject2 = new VideoObject.VideoObjectBuilder(input2).setVolume(1.5).setFadeIn(new FadeIn.FadeInBuilder(0, 1).createFadeIn()).setFadeOut(new FadeOut.FadeOutBuilder(1, 1).createFadeOut()).setCaption(caption2).setResolutionX(1280).setResolutionY(720).createVideoObject();
 		videoObjectList.add(videoObject2);
 
 		//set duration to each video

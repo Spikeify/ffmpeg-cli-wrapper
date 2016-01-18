@@ -25,8 +25,9 @@ public class VideoObject {
 	private int resolutionX;
 	private int resolutionY;
 
+	private double volume;
 
-	private VideoObject(String path, double start, double end, double duration, double videoStartOffset, double overlayX, double overlayY, FadeIn fadeIn, FadeOut fadeOut, List<Caption> captions, Caption caption, List<VideoObject> overlayVideoList, int resolutionX, int resolutionY) {
+	private VideoObject(String path, double start, double end, double duration, double videoStartOffset, double overlayX, double overlayY, FadeIn fadeIn, FadeOut fadeOut, List<Caption> captions, Caption caption, List<VideoObject> overlayVideoList, int resolutionX, int resolutionY, double volume) {
 		this.path = path;
 		this.start = start;
 		this.end = end;
@@ -41,6 +42,11 @@ public class VideoObject {
 		this.overlayVideoList = overlayVideoList;
 		this.resolutionX = resolutionX;
 		this.resolutionY = resolutionY;
+		this.volume = volume;
+	}
+
+	public double getVolume() {
+		return volume;
 	}
 
 	public String getPath() {
@@ -142,6 +148,7 @@ public class VideoObject {
 		private double videoStartOffset; //used for video overlays.
 		private int resolutionX;
 		private int resolutionY;
+		private double volume;
 
 		public VideoObjectBuilder(String path) {
 			this.path = path;
@@ -222,8 +229,13 @@ public class VideoObject {
 			return this;
 		}
 
+		public VideoObjectBuilder setVolume(double volume) {
+			this.volume = volume;
+			return this;
+		}
+
 		public VideoObject createVideoObject() {
-			return new VideoObject(path, start, end, duration, videoStartOffset, overlayX, overlayY, fadeIn, fadeOut, captions, caption, overlayVideoList, resolutionX, resolutionY);
+			return new VideoObject(path, start, end, duration, videoStartOffset, overlayX, overlayY, fadeIn, fadeOut, captions, caption, overlayVideoList, resolutionX, resolutionY, volume);
 		}
 
 

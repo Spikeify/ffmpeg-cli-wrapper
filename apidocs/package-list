@@ -1,6 +1,8 @@
 com.spikeify.commons.lang3.math.gson
 com.spikeify.ffmpeg
 com.spikeify.ffmpeg.builder
+com.spikeify.ffmpeg.builder.commands
+com.spikeify.ffmpeg.builder.elements
 com.spikeify.ffmpeg.colorthief
 com.spikeify.ffmpeg.info
 com.spikeify.ffmpeg.job

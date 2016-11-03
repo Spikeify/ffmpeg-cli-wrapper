@@ -46,6 +46,7 @@ public class FFmpegBuilder {
 	public String input;
 	public FFmpegProbeResult inputProbe;
 	public int video_num_thumbnails = 0;
+	public int thumbnailQuality = 1;
 
 	// Output
 	public List<FFmpegOutputBuilder> outputs = new ArrayList<FFmpegOutputBuilder>();
@@ -68,6 +69,16 @@ public class FFmpegBuilder {
 	 */
 	public FFmpegBuilder setVideoTumbnails(int numThumbnails) {
 		this.video_num_thumbnails = numThumbnails;
+		return this;
+	}
+
+	/**
+	 * Set thumbnail quality
+	 * @param quality Quality (1-32, 1 is best)
+	 * @return
+	 */
+	public FFmpegBuilder setThumbnailQuality(int quality) {
+		this.thumbnailQuality = quality;
 		return this;
 	}
 
@@ -160,6 +171,7 @@ public class FFmpegBuilder {
 
 			if (video_num_thumbnails > 0) {
 				args.add("-vframes").add(String.format("%d", video_num_thumbnails));
+				args.add("-q:v").add(String.format("%d", thumbnailQuality));
 			}
 		}
 		args.add(override ? "-y" : "-n");

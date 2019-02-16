@@ -10,23 +10,27 @@ We added support for (check examples in unit tests):
  - trim videos,
  - stitching multiple videos with fade in, fade out effects, text, text box and video overlays. 
 
-## Requirements 
+## Requirements
+
 Install static build ffmpeg to use all added features.
 
-##Setup
+## Setup
+
     <dependency>
         <groupId>com.spikeify</groupId>
         <artifactId>ffmpeg</artifactId>
         <version>check for latest version</version>
     </dependency>
 
-##Usage
+## Usage
 
-###Init FFmpeg
+### Init FFmpeg
+
     FFmpeg ffmpeg = new FFmpeg("/path/to/ffmpeg");
 	FFprobe ffprobe = new FFprobe("/path/to/ffprobe");
 
-###Create thumbnails 
+### Create thumbnails
+
     FFmpegBuilder builder = new FFmpegBuilder().setInput("inputVideo")
                     .setVideoTumbnails(10) //number of frames to extract
                     .addOutput("thumbnail-%03d.jpg")
@@ -36,12 +40,14 @@ Install static build ffmpeg to use all added features.
     FFmpegJob job = executor.createJob(builder);
     job.run();
 
-###Get dominant color
+### Get dominant color
+
     File img = new File("image.png");
     BufferedImage image = ImageIO.read(img);
     String dominantHex = ColorThief.getDominantHex(image, 1, true);
     
 ### Stitching multiple videos
+
     List<VideoObject> videoObjectList = new ArrayList<>();
     
     //settings for video 1
@@ -59,5 +65,3 @@ Install static build ffmpeg to use all added features.
     FFmpegExecutor executor = new FFmpegExecutor(this.ffmpeg, this.ffprobe);
     FFmpegJob job = executor.createJob(builder);
     job.run();
-
-
